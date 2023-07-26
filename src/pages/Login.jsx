@@ -6,6 +6,7 @@ const style = {
     root: {
         backgroundColor: "#0A001B",
         height: "100vh",
+        width: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
@@ -15,7 +16,7 @@ const style = {
 export default function Login() {
     return (
         <Box sx={style.root}>
-            <LoginComponent />
+            <LoginComponent/>
         </Box>
     )
 }

@@ -8,15 +8,21 @@ import LogoSimples from "../images/LogoSimplesTransparente.png"
 const style = {
   root: {
     backgroundColor: '#101418',
-    height: '60%',
-    width: '27vw',
+    height: '70%',
+    width: '400px',
+    maxWidth: '40%',
+    maxHeight: '800px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
     borderRadius: '10px',
-    padding: '20px'
+    padding: '20px',
+  },
+  logo: {
+    marginBottom: '20px',
+    maxWidth: '80%',
   },
   loginText: {
     color: '#fff',
@@ -78,25 +84,25 @@ const style = {
 }
 
 export const LoginComponent = () => (
-    <Box sx={style.root}>
-      <Box component='img' src={LogoSimples} alt="Logo" height='10em'/>
-      <Typography sx={style.loginText}>Login</Typography>
-      <TextField
-        sx={style.input}
-        label="Digite seu email"
-        variant="outlined"
-        type="text"
-      />
-      <TextField
-        sx={style.input}
-        label="Digite sua senha"
-        variant="outlined"
-        type="password"
-      />
-      <Button sx={style.submitButton} variant="contained" type="submit">Entrar</Button>
-      <Box sx={style.createAccountContainer}>
-          <Typography sx={style.createAccountText}>Ainda não possui conta?</Typography>
-          <a href="#create-acount" sx={style.createAccountLink}>Criar Conta</a>
-      </Box>
+  <Box sx={style.root}>
+    <Box component='img' src={LogoSimples} alt="Logo" height='10em' sx={style.logo} />
+    <Typography sx={style.loginText}>Login</Typography>
+    <TextField
+      sx={style.input}
+      label="Digite seu email"
+      variant="outlined"
+      type="text"
+    />
+    <TextField
+      sx={style.input}
+      label="Digite sua senha"
+      variant="outlined"
+      type="password"
+    />
+    <Button sx={style.submitButton} variant="contained" type="submit">Entrar</Button>
+    <Box sx={style.createAccountContainer}>
+      <Typography sx={style.createAccountText}>Ainda não possui conta?</Typography>
+      <Box component='a' href="#create-acount" sx={style.createAccountLink}>Criar Conta</Box>
     </Box>
+  </Box>
 )
