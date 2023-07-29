@@ -1,5 +1,5 @@
 import React from "react"
-import { LoginComponent } from "../components/LoginComponent"
+import { LoginComponent } from "../components/Login/LoginComponent"
 import Box from "@mui/material/Box"
 
 const style = {
