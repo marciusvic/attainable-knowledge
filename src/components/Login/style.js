@@ -73,5 +73,13 @@ export const style = {
       '&:hover': {
         color: '#0056b3',
       }
+    },
+    loginError:{
+      color: '#FF5757',
+      fontSize: '15px',
+      dispaly: 'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      aligncontent:'center',
     }
   }

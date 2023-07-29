@@ -5,10 +5,12 @@ import Button from '@mui/material/Button'
 import { Typography } from "@mui/material"
 import LogoSimples from "../../images/LogoSimplesTransparente.png"
 import { style } from "./style"
+import data from "./data.json"
 
 export const LoginComponent = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [login, setLogin] = useState(null)
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -19,10 +21,12 @@ export const LoginComponent = () => {
   }
 
   const handleLogin = () => {
-    if (email === 'usuario@example.com' && password === 'senha123') {
-      alert('Login bem sucedido!')
+    const user = data.users.find((user) => user.email === email && user.password === password)
+    if (user) {
+      setLogin(true)
+      alert('Login efetuado com sucesso!')
     } else {
-      alert('Credenciais inválidas. Tente novamente.')
+      setLogin(false)
     }
   }
 
@@ -46,10 +50,11 @@ export const LoginComponent = () => {
         value={password}
         onChange={handlePasswordChange}
       />
+      {login === false && <Typography sx={style.loginError}>Email ou senha incorretos!</Typography>}
       <Button sx={style.submitButton} variant="contained" type="submit" onClick={handleLogin}>Entrar</Button>
       <Box sx={style.createAccountContainer}>
         <Typography sx={style.createAccountText}>Ainda não possui conta?</Typography>
-        <Box component='a' href="#create-acount" sx={style.createAccountLink}>Criar Conta</Box>
+        <Box component='a' href="#create-account" sx={style.createAccountLink}>Criar Conta</Box>
       </Box>
     </Box>
   )
