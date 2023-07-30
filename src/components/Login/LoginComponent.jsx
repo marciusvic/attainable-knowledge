@@ -1,13 +1,17 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { Typography } from "@mui/material"
+
 import LogoSimples from "../../images/LogoSimplesTransparente.png"
 import { style } from "./style"
 import data from "./data.json"
 
 export const LoginComponent = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [login, setLogin] = useState(null)
@@ -24,7 +28,7 @@ export const LoginComponent = () => {
     const user = data.users.find((user) => user.email === email && user.password === password)
     if (user) {
       setLogin(true)
-      alert('Login efetuado com sucesso!')
+      navigate('/')
     } else {
       setLogin(false)
     }
